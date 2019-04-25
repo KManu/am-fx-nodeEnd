@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const https = require('https');
 const helmet = require('helmet')
 const routes = require('./lib/routes.js');
-const auth = require('./lib/shared/auth');
+const auth = require('./lib/shared/jwt_auth');
 require('dotenv').config();
 
 
