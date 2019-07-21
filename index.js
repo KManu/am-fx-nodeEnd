@@ -35,5 +35,5 @@ routes.routes(app);
 
 
 app.listen(app.get('port'), () => {
-  console.log('Server ALLL the way up on:', app.get('port'));
+  console.log('Server ALLL the way up on', app.get('port') +' in '+process.env.NODE_ENV +' mode.');
 });
