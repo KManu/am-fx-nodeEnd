@@ -1,7 +1,7 @@
 module.exports = {
     "extends": "google",
     "parserOptions": {
-        "ecmaVersion": 6
+        "ecmaVersion": 9
     },
     "rules": {
         "linebreak-style": 0,
