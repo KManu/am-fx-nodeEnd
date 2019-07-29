@@ -4,13 +4,15 @@ module.exports = {
     script: 'index.js',
     // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
     exec_mode: 'cluster',
+    instances: 'max',
     merge_logs: true,
     autorestart: true,
+    restart_delay: '100',
     watch: true,
     log_date_format: 'YYYY-MM-DD HH:mm Z',
     ignore_watch: ['node_modules'],
     max_memory_restart: '1G',
-    max_restarts: 5,
+    max_restarts: 3,
     env: {
       NODE_ENV: 'development',
     },

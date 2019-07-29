@@ -9,7 +9,7 @@ module.exports = {
         "no-tabs": 0,
         "space-before-function-paren": 0,
         "eol-last": 0,
-        "max-len": 0
-
+        "max-len": 0,
+        "indent": 0,
     }
 };
