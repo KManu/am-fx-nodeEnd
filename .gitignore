@@ -5,6 +5,27 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
 # Runtime data
 pids
 *.pid
@@ -61,3 +82,6 @@ typings/
 
 # next.js build output
 .next
+
+# pm2
+ecosystem.config.*

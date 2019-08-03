@@ -9,7 +9,7 @@ const os = require('os');
 
 const routes = require('./lib/routes.js');
 const auth = require('./lib/shared/jwt_auth');
-const { connectDb, models } = require('./lib/db/db.index');
+const { connectDb, models, seedDB } = require('./lib/db/db.index');
 const { PORT, NODE_ENV } = require('./env.config');
 
 global.Promise = require('bluebird');
