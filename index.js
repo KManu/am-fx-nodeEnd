@@ -6,34 +6,44 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cluster = require('cluster');
 const os = require('os');
+const cors = require('cors');
 
 const routes = require('./lib/routes.js');
 const auth = require('./lib/shared/jwt_auth');
-const { connectDb, models, seedDB } = require('./lib/db/db.index');
+const { connectDb } = require('./lib/db/db.index');
 const { PORT, NODE_ENV } = require('./env.config');
 
 global.Promise = require('bluebird');
 
 
-const CPUS = os.cpus();
-if (cluster.isMaster) {
-  // create a worker for each cpu
-  CPUS.forEach(() => cluster.fork());
+if (NODE_ENV === 'production') {
+  const CPUS = os.cpus();
+  if (cluster.isMaster) {
+    // create a worker for each cpu
+    CPUS.forEach(() => cluster.fork());
 
-  cluster.on('listening', (worker) => {
-    console.log('Worker %d connected', worker.process.pid);
-  });
+    cluster.on('listening', (worker) => {
+      console.log('Worker %d connected', worker.process.pid);
+    });
 
-  cluster.on('disconnect', (worker) => {
-    console.log('Worker %d disconnected', worker.process.pid);
-  });
+    cluster.on('disconnect', (worker) => {
+      console.log('Worker %d disconnected', worker.process.pid);
+    });
 
-  cluster.on('exit', (worker) => {
-    console.log('Worker %d is dead', worker.process.pid);
-    // Ensure starts of a new worker if an old one dies
-    cluster.fork();
-  });
+    cluster.on('exit', (worker) => {
+      console.log('Worker %d is dead', worker.process.pid);
+      // Ensure starts of a new worker if an old one dies
+      cluster.fork();
+    });
+  } else {
+    startApp();
+  }
 } else {
+  // create just one instance for dev
+  startApp();
+}
+
+function startApp() {
   const app = express();
   app.set('port', PORT);
 
@@ -60,6 +70,7 @@ if (cluster.isMaster) {
 
   connectDb()
     .then(() => {
+      console.log('DB Connected.');
       app.listen(app.get('port'), () => {
         console.log('Server ALLL the way up on', app.get('port') + ' in ' + NODE_ENV + ' mode.');
       });

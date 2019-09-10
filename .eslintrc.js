@@ -1,15 +1,18 @@
 module.exports = {
-    "extends": "google",
-    "parserOptions": {
-        "ecmaVersion": 9
-    },
-    "rules": {
-        "linebreak-style": 0,
-        "require-jsdoc": 0,
-        "no-tabs": 0,
-        "space-before-function-paren": 0,
-        "eol-last": 0,
-        "max-len": 0,
-        "indent": 0,
-    }
+  extends: 'google',
+  parserOptions: {
+    ecmaVersion: 9
+  },
+  rules: {
+    'linebreak-style': 0,
+    'require-jsdoc': 0,
+    'no-tabs': 0,
+    'space-before-function-paren': 0,
+    'eol-last': 0,
+    'max-len': 0,
+    indent: 0,
+    'object-curly-spacing': 0,
+    'arrow-parens': 0,
+    'comma-dangle': 0
+  }
 };

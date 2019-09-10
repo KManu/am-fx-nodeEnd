@@ -1,11 +1,23 @@
 {
-  "spellright.language": [
-      "en"
-  ],
-  "spellright.documentTypes": [
-      "markdown",
-      "latex",
-      "plaintext"
-  ],
-  "debug.node.autoAttach": "on"
+  "spellright.language": ["en"],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "debug.node.autoAttach": "on",
+  "editor.codeLens": true,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "line",
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.formatOnSave": true,
+  "editor.letterSpacing": 0.3,
+  "editor.renderWhitespace": "none",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.autoIndent": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false
+  },
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 100
 }
