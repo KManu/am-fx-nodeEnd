@@ -57,7 +57,7 @@ function startApp() {
   app.use(bodyParser.urlencoded({ extended: true, limit: '2mb' }));
 
   // Security plugins
-  // app.use(cors()); // Not using cors because headers are already set by nginx
+  NODE_ENV === 'development' && app.use(cors()); // Not using cors because headers are already set by nginx
   app.use(helmet());
 
 
